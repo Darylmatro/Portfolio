@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Définir l'animation */
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Appliquer l'animation à chaque lettre */
+.letter {
+  @apply inline-block opacity-0 transform transition-all;
+  animation: reveal 6s ease-in-out infinite;
+}
