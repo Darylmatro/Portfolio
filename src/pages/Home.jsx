@@ -122,7 +122,7 @@ function Home() {
               </span>
             ))}
           </div>
-          <p className="text-2xl text-center max-w-xl z-20 text-white">
+          <p className="text-lg sm:text-2xl max-w-md">
             À la recherche d'un stage/Alternance en Développement web.
           </p>
         </div>
@@ -149,13 +149,13 @@ function Home() {
         <h2 className="text-center text-4xl font-bold text-black mb-6">
           MES PROJETS
         </h2>
-        <div className="flex flex-wrap justify-center space-x-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {/* Carte de projet 1 */}
-          <div className="relative border-2 border-gray-500 w-96 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 mb-6">
+          <div className="relative border-2 border-gray-500 w-80 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
             <img
               src="/forum.png"
               alt="FORUM"
-              className="w-full h-56 object-cover rounded-t-lg shadow-lg"
+              className="w-full h-48 object-cover rounded-t-lg shadow-lg"
             />
             <div className="bg-white p-4 text-center rounded-b-lg">
               <p className="font-bold text-xl mb-2">FORUM</p>
@@ -193,11 +193,11 @@ function Home() {
           </div>
 
           {/* Carte de projet 2 */}
-          <div className="relative border-2 border-gray-500 w-96 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 mb-6">
+          <div className="relative border-2 border-gray-500 w-80 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
             <img
               src="/groupie-tracker.png"
               alt="GROUPIE TRACKER"
-              className="w-full h-56 object-cover rounded-t-lg shadow-lg"
+              className="w-full h-48 object-cover rounded-t-lg shadow-lg"
             />
             <div className="bg-white p-4 text-center rounded-b-lg">
               <p className="font-bold text-xl mb-2">GROUPIE TRACKER</p>
@@ -235,11 +235,11 @@ function Home() {
           </div>
 
           {/* Carte de projet 3 */}
-          <div className="relative border-2 border-gray-500 w-96 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 mb-6">
+          <div className="relative border-2 border-gray-500 w-80 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
             <img
               src="/quiz.png"
               alt="QUIZ"
-              className="w-full h-56 object-cover rounded-t-lg shadow-lg"
+              className="w-full h-48 object-cover rounded-t-lg shadow-lg"
             />
             <div className="bg-white p-4 text-center rounded-b-lg">
               <p className="font-bold text-xl mb-2">QUIZ</p>
@@ -277,13 +277,13 @@ function Home() {
           <h2 className="text-center text-4xl font-bold text-black mb-6">
             SKILLS
           </h2>
-          <div className="flex flex-wrap justify-center space-x-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {/* Carte Skill 1 */}
-            <div className="relative border-2 border-gray-500 w-96 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 mb-6">
+            <div className="relative border-2 border-gray-500 w-80 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
               <img
                 src="/back.png"
                 alt="Back-end"
-                className="w-full h-56 object-cover rounded-t-lg shadow-lg"
+                className="w-full h-48 object-cover rounded-t-lg shadow-lg"
               />
               <div className="bg-white p-4 text-center rounded-b-lg">
                 <p className="font-bold text-xl mb-2">Back-end</p>
@@ -311,11 +311,11 @@ function Home() {
             </div>
 
             {/* Carte Skill 2 */}
-            <div className="relative border-2 border-gray-500 w-96 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 mb-6">
+            <div className="relative border-2 border-gray-500 w-80 h-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
               <img
                 src="/front.jpg"
                 alt="Front-end"
-                className="w-full h-56 object-cover rounded-t-lg shadow-lg"
+                className="w-full h-48 object-cover rounded-t-lg shadow-lg"
               />
               <div className="bg-white p-4 text-center rounded-b-lg">
                 <p className="font-bold text-xl mb-2">Front-end</p>
