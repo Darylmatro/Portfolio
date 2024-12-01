@@ -61,19 +61,19 @@ Ce projet est un portfolio personnel développé avec React pour le frontend et 
 
 ## Utilisation
 
-1. Démarrez le serveur backend :
-
-   ```bash
-   npm start /
-   node server.js
-   ```
-
-2. Démarrez l'application frontend :
+1. Démarrez l'application frontend :
 
    ```bash
    cd ..
    npm start /
    npm run dev
+   ```
+
+2. Démarrez le serveur backend :
+
+   ```bash
+   npm start /
+   node server.js
    ```
 
 3. Ouvrez votre navigateur et accédez à `http://localhost:5173/`
