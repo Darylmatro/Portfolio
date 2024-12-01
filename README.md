@@ -38,7 +38,7 @@ Ce projet est un portfolio personnel développé avec React pour le frontend et 
 2. Accédez au répertoire du projet :
 
    ```bash
-   cd portfolio-react
+   cd portfolio
    ```
 
 3. Installez les dépendances pour le frontend :
