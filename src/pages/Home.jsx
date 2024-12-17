@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import axios from "axios";
 import Modal from "../components/Modal";
+import emailjs from "emailjs-com";
 
 function Home() {
   const [formData, setFormData] = useState({ email: "", message: "" });
@@ -16,19 +16,40 @@ function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/send-email",
-        formData
+
+    // Vérification des variables d'environnement
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const userID = import.meta.env.VITE_EMAILJS_USER_ID;
+
+    if (!serviceID || !templateID || !userID) {
+      console.error(
+        "EmailJS n'est pas configuré. Veuillez vérifier votre fichier .env"
       );
-      setResponseMessage("Votre message a été envoyé avec succès !");
-      setResponseType("success"); // Type "success" pour une réponse réussie
-      setFormData({ email: "", message: "" });
-    } catch (error) {
-      setResponseMessage("Oups une erreur est survenue. Réessayer plus tard.");
-      setResponseType("error"); // Type "error" pour une erreur
+      setResponseMessage(
+        "Erreur de configuration. Contactez l'administrateur."
+      );
+      setResponseType("error");
+      setShowModal(true);
+      return;
     }
-    setShowModal(true);
+
+    try {
+      // Envoi de l'email avec EmailJS
+      await emailjs.sendForm(serviceID, templateID, e.target, userID);
+
+      // Mise à jour de l'état en cas de succès
+      setResponseMessage("Votre message a été envoyé avec succès !");
+      setResponseType("success");
+      setFormData({ email: "", message: "" }); // Réinitialiser les champs
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de l'email :", error);
+      setResponseMessage("Oups, une erreur est survenue. Réessayez plus tard.");
+      setResponseType("error");
+    } finally {
+      // Afficher le modal dans tous les cas
+      setShowModal(true);
+    }
   };
 
   useEffect(() => {
