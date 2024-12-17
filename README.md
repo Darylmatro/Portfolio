@@ -23,7 +23,7 @@ Ce projet est un portfolio personnel développé avec React pour le frontend et 
 
 ### Backend
 
-- Node.js
+- Email.js
 - Express
 - MongoDB
 
@@ -47,13 +47,7 @@ Ce projet est un portfolio personnel développé avec React pour le frontend et 
    npm install
    ```
 
-4. Accédez au répertoire backend :
-
-   ```bash
-   cd backend
-   ```
-
-5. Installez les dépendances pour le backend :
+4. Installez les dépendances pour le backend :
 
    ```bash
    npm install
@@ -69,14 +63,7 @@ Ce projet est un portfolio personnel développé avec React pour le frontend et 
    npm run dev
    ```
 
-2. Démarrez le serveur backend :
-
-   ```bash
-   npm start /
-   node server.js
-   ```
-
-3. Ouvrez votre navigateur et accédez à `http://localhost:5173/`
+2. Ouvrez votre navigateur et accédez à `http://localhost:5173/`
 
 ## Auteur
 
