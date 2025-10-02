@@ -47,6 +47,15 @@ function Projects() {
                   className="w-6 h-6 hover:scale-110 transition-transform"
                 />
               </div>
+              <a
+                href="https://github.com/ton-compte-github/forum"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Voir le projet FORUM sur GitHub"
+                className="inline-block mt-4 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-transform duration-300"
+              >
+                Voir GitHub
+              </a>
             </div>
           </div>
 
@@ -62,8 +71,11 @@ function Projects() {
                 GROUPIE TRACKER
               </p>
               <p className="text-sm mb-4 text-white">
-                Application permettant de suivre les groupes et leurs
-                performances en ligne.
+                Groupie Tracker est une application web permettant de suivre vos
+                groupes de musique préférés. Découvrez les membres des groupes,
+                leurs dates de création, le premier album, ainsi que les dates
+                et lieux de leurs prochains concerts. Explorez les événements
+                via une carte interactive.
               </p>
               <div className="flex justify-center space-x-4 mt-4">
                 <img
@@ -91,6 +103,15 @@ function Projects() {
                   className="w-6 h-6 hover:scale-110 transition-transform"
                 />
               </div>
+              <a
+                href="https://github.com/Darylmatro/Groupie-Tracker"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Voir le projet GROUPIE TRACKER sur GitHub"
+                className="inline-block mt-4 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-transform duration-300"
+              >
+                Voir GitHub
+              </a>
             </div>
           </div>
 
@@ -126,6 +147,15 @@ function Projects() {
                   className="w-6 h-6 hover:scale-110 transition-transform"
                 />
               </div>
+              <a
+                href="https://github.com/ton-compte-github/quiz"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Voir le projet QUIZ sur GitHub"
+                className="inline-block mt-4 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-transform duration-300"
+              >
+                Voir GitHub
+              </a>
             </div>
           </div>
         </div>

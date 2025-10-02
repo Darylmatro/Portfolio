@@ -7,10 +7,10 @@ function About() {
         <div className="w-full text-center">
           <h2 className="text-4xl font-bold text-white mb-6">À propos</h2>
           <p className="text-lg text-white text-center font-mono">
-            Étudiant en 2ème année de Bachelor Informatique à Ynov Rennes et
+            Étudiant en 3ème année de Bachelor Informatique à Ynov Rennes et
             passionné par le développement web.
             <br />
-            Je suis à la recherche d'un stage pour mettre en pratique mes
+            Je suis à la recherche d'une Alternance pour mettre en pratique mes
             connaissances et approfondir mes compétences en développement web.
           </p>
         </div>
