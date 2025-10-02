@@ -32,7 +32,9 @@ function Home() {
           <span className="ml-1 text-blue-400 animate-pulse">|</span>
         </h1>
         <p className="text-white text-base sm:text-lg lg:text-2xl max-w-md sm:max-w-xl text-center mb-6 sm:mb-8 font-mono bg-black bg-opacity-30 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg shadow-lg">
-          À la recherche d'un stage/Alternance en Développement web.
+          Recherche une Alternance en Développement web/Mobile pour mettre en
+          pratique mes competances acquises et pour apprendre de nouvelles
+          choses.
         </p>
         <Link
           to="/projects"

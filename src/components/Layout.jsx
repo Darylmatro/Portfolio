@@ -8,10 +8,10 @@ function Layout() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
-      <main className={`flex-1 pb-24`}>
+      <main className={`flex-1`}>
         <Outlet />
       </main>
-      <footer className="fixed bottom-0 left-0 w-full bg-gradient-to-r from-[#0f2027] via-[#2c5364] to-[#232526] bg-black/10 backdrop-blur-sm text-white text-center py-4 text-sm z-50 flex flex-col items-center gap-2 shadow-t-md">
+      <footer className="mt-auto w-full bg-gradient-to-r from-[#0f2027] via-[#2c5364] to-[#232526] bg-black/10 backdrop-blur-sm text-white text-center py-4 text-sm flex flex-col items-center gap-2 shadow-t-md">
         <div className="flex justify-center gap-4 mb-1">
           <a
             href="https://github.com/Darylmatro"

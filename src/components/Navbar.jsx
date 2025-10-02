@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="fixed top-0 left-0 w-full p-4 bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526] z-50 transition-all">
+    <nav className="sticky top-0 w-full p-4 bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526] bg-black/10 backdrop-blur-sm border-b border-white/10 z-50 transition-all">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         <div className="text-white font-extrabold tracking-wide">
           <Link
