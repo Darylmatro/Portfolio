@@ -42,8 +42,8 @@ function About() {
         </div>
         {/* Bouton Télécharger CV */}
         <a
-          href="/CV_pro  (1).pdf"
-          download="CV_pro  (1).pdf"
+          href="/CV_pro.pdf"
+          download="CV_pro.pdf"
           className="mt-2 inline-block px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-all duration-300 text-lg text-center"
         >
           Télécharger mon CV
