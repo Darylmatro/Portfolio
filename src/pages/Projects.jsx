@@ -55,7 +55,7 @@ function Projects() {
               </div>
               <div className="flex justify-center gap-4 mt-4">
                 <a
-                  href="https://github.com/ton-compte-github/forum"
+                  href="https://github.com/Darylmatro/forum"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Voir le projet FORUM sur GitHub"
