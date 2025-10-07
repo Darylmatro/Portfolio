@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../components/Modal";
-import emailjs from "emailjs-com";
+import emailjs from "emailjs/browser";
 
 function Contact() {
   const [formData, setFormData] = useState({ email: "", message: "" });
