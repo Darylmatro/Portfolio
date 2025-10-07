@@ -56,6 +56,8 @@ function Contact() {
     } finally {
       setIsSending(false);
       setShowModal(true);
+      // Masquer automatiquement la popup après 3 secondes
+      setTimeout(() => setShowModal(false), 3000);
     }
   };
 
@@ -125,6 +127,7 @@ function Contact() {
           </button>
         </form>
       </div>
+      {showModal && <Modal message={responseMessage} type={responseType} />}
     </div>
   );
 }
