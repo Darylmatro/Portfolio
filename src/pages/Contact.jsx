@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Modal from "../components/Modal";
-import emailjs from "emailjs/browser";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
   const [formData, setFormData] = useState({ email: "", message: "" });
   const [responseMessage, setResponseMessage] = useState("");
   const [responseType, setResponseType] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,8 +33,19 @@ function Contact() {
       return;
     }
 
+    setIsSending(true);
     try {
-      await emailjs.sendForm(serviceID, templateID, e.target, userID);
+      await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          // Aligne les variables avec les templates courants EmailJS
+          reply_to: formData.email,
+          email: formData.email,
+          message: formData.message,
+        },
+        userID
+      );
       setResponseMessage("Votre message a été envoyé avec succès !");
       setResponseType("success");
       setFormData({ email: "", message: "" });
@@ -42,6 +54,7 @@ function Contact() {
       setResponseMessage("Oups, une erreur est survenue. Réessayez plus tard.");
       setResponseType("error");
     } finally {
+      setIsSending(false);
       setShowModal(true);
     }
   };
@@ -105,9 +118,10 @@ function Contact() {
           </div>
           <button
             type="submit"
-            className="flex items-center justify-center w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-bold shadow-md hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-all border-2 border-gray-800 mt-2"
+            disabled={isSending}
+            className="flex items-center justify-center w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-bold shadow-md hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-all border-2 border-gray-800 mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Envoyer
+            {isSending ? "Envoi..." : "Envoyer"}
           </button>
         </form>
       </div>
