@@ -8,7 +8,7 @@ function About() {
           <h2 className="text-4xl font-bold text-white mb-6">À propos</h2>
           <p className="text-lg text-white text-center font-mono">
             Je suis actuellement étudiant en troisième année de Bachelor
-            Informatique à Inoff, Campus Rennes. Passionné par l’informatique et
+            Informatique à Ynov Campus Rennes. Passionné par l’informatique et
             les nouvelles technologies, je m’intéresse particulièrement à la
             manière dont elles évoluent et transforment notre quotidien. J’aime
             comprendre, expérimenter et me tenir informé des dernières avancées
