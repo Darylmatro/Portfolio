@@ -33,17 +33,27 @@ function Home() {
         </h1>
         <p className="text-white text-base sm:text-lg lg:text-2xl max-w-md sm:max-w-xl text-center mb-6 sm:mb-8 font-mono bg-black bg-opacity-30 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg shadow-lg">
           Recherche une Alternance en Développement web/Mobile pour mettre en
-          pratique mes competances acquises et pour apprendre de nouvelles
+          pratique mes competences acquises et pour apprendre de nouvelles
           choses.
         </p>
-        <Link
-          to="/projects"
-          className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-all duration-300 text-base sm:text-lg"
-        >
-          Voir mes projets
-        </Link>
+
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+          <a
+            href="/CV-pro .pdf"
+            download="CV-pro .pdf"
+            className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-all duration-300 text-base sm:text-lg"
+          >
+            Télécharger mon CV
+          </a>
+          <Link
+            to="/projects"
+            className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-all duration-300 text-base sm:text-lg"
+          >
+            Voir mes projets
+          </Link>
+        </div>
       </div>
-      {/* Dégradé animé en fond (optionnel, pour l'effet) */}
+      {/* Dégradé animé en fond (pour l'effet) */}
       <style>{`
         .animate-gradient-x {
           background-size: 200% 200%;

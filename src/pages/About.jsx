@@ -7,11 +7,17 @@ function About() {
         <div className="w-full text-center">
           <h2 className="text-4xl font-bold text-white mb-6">À propos</h2>
           <p className="text-lg text-white text-center font-mono">
-            Étudiant en 3ème année de Bachelor Informatique à Ynov Rennes et
-            passionné par le développement web.
-            <br />
-            Je suis à la recherche d'une Alternance pour mettre en pratique mes
-            connaissances et approfondir mes compétences en développement web.
+            Je suis actuellement étudiant en troisième année de Bachelor
+            Informatique à Inoff, Campus Rennes. Passionné par l’informatique et
+            les nouvelles technologies, je m’intéresse particulièrement à la
+            manière dont elles évoluent et transforment notre quotidien. J’aime
+            comprendre, expérimenter et me tenir informé des dernières avancées
+            pour continuer à progresser. Curieux et rigoureux, j’accorde une
+            grande importance à la qualité du travail et à la compréhension des
+            besoins dans chaque projet. J’apprécie également le travail en
+            équipe : échanger des idées, apprendre des autres et construire
+            ensemble des solutions efficaces fait partie de ce que j’aime le
+            plus dans ce domaine.
           </p>
         </div>
         {/* Section Éducation */}
@@ -32,7 +38,7 @@ function About() {
             <div className="flex items-start gap-3">
               <span className="text-2xl">📜</span>
               <div>
-                <span className="font-bold text-white">Baccalauréat B</span>{" "}
+                <span className="font-bold text-white">Baccalauréat ES</span>{" "}
                 <span className="text-white">
                   - (Spécialités Economie et Gestion)
                 </span>
@@ -42,8 +48,8 @@ function About() {
         </div>
         {/* Bouton Télécharger CV */}
         <a
-          href="/CV_pro.pdf"
-          download="CV_pro.pdf"
+          href="/CV-pro .pdf"
+          download="CV-pro .pdf"
           className="mt-2 inline-block px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-all duration-300 text-lg text-center"
         >
           Télécharger mon CV

@@ -69,7 +69,7 @@ function Navbar() {
             onClick={() => setIsOpen(false)}
             className="relative transition-all duration-300 cursor-pointer group hover:text-blue-400 hover:font-extrabold focus:outline-none focus:ring-2 focus:ring-blue-400 rounded"
           >
-            À propos
+            Mon parcours
           </Link>
         </li>
         <li>
