@@ -1,65 +1,57 @@
-import React from "react";
-
-const backendIcons = [
-  { src: "svg/php.svg", alt: "PHP" },
-  { src: "svg/go-lang.svg", alt: "Go" },
-  { src: "svg/java.svg", alt: "Java" },
-  { src: "svg/python.svg", alt: "Python" },
-  { src: "svg/nodejs.svg", alt: "Node.js" },
-];
-const frontendIcons = [
-  { src: "svg/html5.svg", alt: "HTML5" },
-  { src: "svg/css3.svg", alt: "CSS3" },
-  { src: "svg/javascript.svg", alt: "JavaScript" },
-  { src: "svg/react.svg", alt: "React" },
-  { src: "svg/tailwind-css.svg", alt: "Tailwind CSS" },
-  { src: "svg/typescript.svg", alt: "TypeScript" },
-];
-const dbIcons = [
-  { src: "svg/mysql.svg", alt: "MySQL" },
-  { src: "svg/mongodb.svg", alt: "MongoDB" },
-  { src: "svg/supabase.svg", alt: "Supabase" },
-  { src: "svg/sqlite.svg", alt: "SQLite" },
-  { src: "svg/postgresql.svg", alt: "PostgreSQL" },
-];
+import { skillCategories } from "../data/skills";
+import Reveal from "../components/ui/Reveal";
+import GlassPanel from "../components/ui/GlassPanel";
 
 function Skills() {
-  const renderIcons = (icons) => (
-    <div className="w-full flex justify-center">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 md:gap-12 max-w-3xl w-full mx-auto place-items-center">
-        {icons.map((icon, idx) => (
-          <img
-            key={idx}
-            src={icon.src}
-            alt={icon.alt}
-            title={icon.alt}
-            className="w-20 h-20 md:w-24 md:h-24 transition-all duration-300 transform hover:scale-110 hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.5)]"
-          />
-        ))}
-      </div>
-    </div>
-  );
-
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526] flex items-center justify-center py-8">
-      <div className="w-full max-w-5xl p-8 bg-black bg-opacity-40 rounded-xl shadow-lg flex flex-col gap-10">
-        {/* Backend */}
-        <div className="bg-black bg-opacity-40 rounded-xl shadow-md p-8 flex flex-col items-center gap-8">
-          <h2 className="text-2xl font-bold text-blue-400 mb-2">Backend</h2>
-          {renderIcons(backendIcons)}
-        </div>
-        {/* Frontend */}
-        <div className="bg-black bg-opacity-40 rounded-xl shadow-md p-8 flex flex-col items-center gap-8">
-          <h2 className="text-2xl font-bold text-pink-400 mb-2">Frontend</h2>
-          {renderIcons(frontendIcons)}
-        </div>
-        {/* Base de données */}
-        <div className="bg-black bg-opacity-40 rounded-xl shadow-md p-8 flex flex-col items-center gap-8">
-          <h2 className="text-2xl font-bold text-green-400 mb-2">
-            Base de données
-          </h2>
-          {renderIcons(dbIcons)}
-        </div>
+    <div className="mx-auto w-full max-w-5xl px-6 py-20 sm:px-10">
+      <Reveal>
+        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300">
+          Compétences
+        </span>
+        <h1 className="mt-3 font-display text-4xl font-bold sm:text-5xl">Ce que je sais faire</h1>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+          Chaque compétence est reliée à un contexte concret — un projet ou ma formation — plutôt
+          qu&rsquo;à un score arbitraire. C&rsquo;est comme ça que je préfère raconter ma
+          progression.
+        </p>
+      </Reveal>
+
+      <div className="mt-16 space-y-16">
+        {skillCategories.map((category, categoryIndex) => (
+          <Reveal key={category.id} delay={categoryIndex * 0.05}>
+            <div className="mb-6 flex items-baseline gap-4">
+              <h2
+                className={`bg-gradient-to-r ${category.accent} bg-clip-text font-display text-2xl font-bold text-transparent sm:text-3xl`}
+              >
+                {category.title}
+              </h2>
+              <span className="h-px flex-1 bg-white/10" aria-hidden="true" />
+            </div>
+            <p className="mb-8 max-w-2xl text-white/70">{category.summary}</p>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {category.skills.map((skill) => (
+                <GlassPanel key={skill.name} className="flex items-center gap-4 p-4">
+                  <img src={skill.icon} alt="" className="h-10 w-10 shrink-0" />
+                  <div>
+                    <p className="font-semibold text-white">{skill.name}</p>
+                    <div className="mt-1.5 flex flex-wrap gap-1.5">
+                      {skill.context.map((ctx) => (
+                        <span
+                          key={ctx}
+                          className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs text-white/60"
+                        >
+                          {ctx}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </GlassPanel>
+              ))}
+            </div>
+          </Reveal>
+        ))}
       </div>
     </div>
   );

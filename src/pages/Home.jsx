@@ -1,70 +1,79 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import CtaLink from "../components/ui/CtaLink";
+import { useReducedMotion } from "../lib/useReducedMotion";
+
+const CV_FILE = "/CV-pro .pdf";
+const FULL_NAME = "Daryl Matro";
 
 function Home() {
   const [displayed, setDisplayed] = useState("");
-  const fullName = "Daryl MATRO";
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (reducedMotion) {
+      setDisplayed(FULL_NAME);
+      return undefined;
+    }
     let i = 0;
     const interval = setInterval(() => {
-      setDisplayed(fullName.slice(0, i + 1));
-      i++;
-      if (i === fullName.length) clearInterval(interval);
-    }, 120);
+      setDisplayed(FULL_NAME.slice(0, i + 1));
+      i += 1;
+      if (i === FULL_NAME.length) clearInterval(interval);
+    }, 90);
     return () => clearInterval(interval);
-  }, []);
+  }, [reducedMotion]);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526] animate-gradient-x flex items-center justify-center px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
-      <div className="relative z-10 flex flex-col justify-center items-center w-full max-w-7xl">
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-mono font-extrabold text-white drop-shadow-lg mb-4 sm:mb-6 lg:mb-8 h-16 sm:h-20 flex items-center text-center">
+    <div className="flex min-h-[85vh] w-full flex-col items-center justify-center px-6 py-16 sm:px-10">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="flex w-full max-w-4xl flex-col items-center text-center"
+      >
+        <span className="mb-6 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+          Développement Web &amp; Mobile
+        </span>
+
+        <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-7xl lg:text-8xl">
           <span
+            className="bg-clip-text text-transparent"
             style={{
-              background: "linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              display: "inline-block",
+              backgroundImage:
+                "linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6)",
             }}
           >
             {displayed}
           </span>
-          <span className="ml-1 text-blue-400 animate-pulse">|</span>
+          {!reducedMotion && (
+            <span className="ml-1 animate-pulse text-blue-400">|</span>
+          )}
         </h1>
-        <p className="text-white text-base sm:text-lg lg:text-2xl max-w-md sm:max-w-xl text-center mb-6 sm:mb-8 font-mono bg-black bg-opacity-30 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg shadow-lg">
-          Recherche une Alternance en Développement web/Mobile pour mettre en
-          pratique mes competences acquises et pour apprendre de nouvelles
-          choses.
+
+        <p className="mt-8 max-w-xl text-balance text-lg text-white/80 sm:text-xl">
+          Recherche une alternance en développement web/mobile pour mettre en
+          pratique mes compétences acquises et apprendre de nouvelles choses.
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-          <a
-            href="/CV-pro .pdf"
-            download="CV-pro .pdf"
-            className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-all duration-300 text-base sm:text-lg"
-          >
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <CtaLink href={CV_FILE} download="CV-pro .pdf">
             Télécharger mon CV
-          </a>
-          <Link
-            to="/projects"
-            className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold shadow-lg hover:scale-105 hover:from-purple-600 hover:to-blue-500 transition-all duration-300 text-base sm:text-lg"
-          >
+          </CtaLink>
+          <CtaLink to="/projects" variant="ghost">
             Voir mes projets
-          </Link>
+          </CtaLink>
         </div>
-      </div>
-      {/* Dégradé animé en fond (pour l'effet) */}
-      <style>{`
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 8s ease-in-out infinite;
-        }
-        @keyframes gradient-x {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
+      </motion.div>
+
+      {!reducedMotion && (
+        <motion.div
+          className="mt-20 flex flex-col items-center gap-2 text-white/50"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          aria-hidden="true"
+        ></motion.div>
+      )}
     </div>
   );
 }
