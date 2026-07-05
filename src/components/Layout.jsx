@@ -1,50 +1,50 @@
-import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { ScrollProvider } from "../lib/ScrollProvider";
+import CssFallback from "../three/CssFallback";
+import Cursor from "./Cursor";
 import Navbar from "./Navbar";
+import PageTransition from "./PageTransition";
+
+// three.js/@react-three add ~300kB gzipped — deferred to its own chunk so it
+// never blocks first paint. The CSS gradient shows instantly and the WebGL
+// scene fades in once the chunk is ready.
+const ShaderBackground = lazy(() => import("../three/ShaderBackground"));
 
 function Layout() {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <Navbar />
-      <main className={`flex-1`}>
-        <Outlet />
-      </main>
-      <footer className="mt-auto w-full bg-gradient-to-r from-[#0f2027] via-[#2c5364] to-[#232526] bg-black/10 backdrop-blur-sm text-white text-center py-4 text-sm flex flex-col items-center gap-2 shadow-t-md">
-        <div className="flex justify-center gap-4 mb-1">
-          <a
-            href="https://github.com/Darylmatro"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform"
-            title="GitHub"
-          >
-            <img
-              src="/svg/github.svg"
-              alt="GitHub"
-              className="w-6 h-6 inline"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/daryl-matro-a9123a1b5/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform"
-            title="LinkedIn"
-          >
-            <img
-              src="/svg/linkedin.svg"
-              alt="LinkedIn"
-              className="w-6 h-6 inline"
-            />
-          </a>
-        </div>
-        <div>
-          &copy; {new Date().getFullYear()} Daryl Matro. Tous droits réservés.
-        </div>
-      </footer>
-    </div>
+    <ScrollProvider>
+      <div className="relative flex min-h-screen w-full flex-col text-white">
+        <Suspense fallback={<CssFallback />}>
+          <ShaderBackground />
+        </Suspense>
+        <Cursor />
+        <Navbar />
+        <PageTransition />
+        <footer className="mt-auto w-full border-t border-white/10 bg-black/30 py-6 text-center text-sm text-white/70 backdrop-blur-xl">
+          <div className="mb-3 flex justify-center gap-5">
+            <a
+              href="https://github.com/Darylmatro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform hover:scale-110 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
+              title="GitHub"
+            >
+              <img src="/svg/github.svg" alt="GitHub" className="h-6 w-6" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/daryl-matro-a9123a1b5/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform hover:scale-110 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
+              title="LinkedIn"
+            >
+              <img src="/svg/linkedin.svg" alt="LinkedIn" className="h-6 w-6" />
+            </a>
+          </div>
+          <p>&copy; {new Date().getFullYear()} Daryl Matro. Tous droits réservés.</p>
+        </footer>
+      </div>
+    </ScrollProvider>
   );
 }
 

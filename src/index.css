@@ -2,24 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Définir l'animation */
-@keyframes reveal {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
+@layer base {
+  html,
+  body {
+    background-color: #0f2027;
+    color-scheme: dark;
   }
-  50% {
-    opacity: 1;
-    transform: translateY(0);
+
+  body {
+    @apply font-sans text-white antialiased;
   }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
+
+  :focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
   }
 }
 
-/* Appliquer l'animation à chaque lettre */
-.letter {
-  @apply inline-block opacity-0 transform transition-all;
-  animation: reveal 6s ease-in-out infinite;
+/* Fallback background used when WebGL is unavailable (see ShaderBackground) */
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 8s ease-in-out infinite;
+}
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Subtle dark scrollbar to match the theme (progressive enhancement) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-gradient-x {
+    animation: none;
+  }
 }

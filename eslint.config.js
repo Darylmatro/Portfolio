@@ -10,7 +10,7 @@ export default [
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.node },
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
@@ -29,6 +29,16 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      // This project uses plain JS/JSX without the `prop-types` package.
+      'react/prop-types': 'off',
+      // react-three-fiber renders three.js props (args, uniforms, shaders...)
+      // as JSX attributes; they aren't real DOM/React props.
+      'react/no-unknown-property': [
+        'error',
+        {
+          ignore: ['args', 'vertexShader', 'fragmentShader', 'uniforms', 'depthTest', 'depthWrite'],
+        },
+      ],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
